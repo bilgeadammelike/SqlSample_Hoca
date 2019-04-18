@@ -1,4 +1,5 @@
 ﻿using SqlSample.DAL;
+using SqlSample.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,11 @@ namespace SqlSample.WinUI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-           
+            ShipperDAL dal = new ShipperDAL();
+          int deger=  dal.ShipperAdd(new ShipperDAO() {
+              CompanyName=txtName.Text,
+              Phone=mstPhone.Text
+          });
 
         }
 

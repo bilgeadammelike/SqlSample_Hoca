@@ -57,20 +57,19 @@ namespace SqlSample.DAL
             int donendeger = 0;
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "server=.;Database=NORTHWND;uid=sa;pwd=123";
-            tran = conn.BeginTransaction();
+            conn.Open();
+            tran = conn.BeginTransaction();         
             try
             {
-                SqlCommand cmd = new SqlCommand(string.Format("insert into Shippers(CompanyName,Phone) values({0},{1})", added.CompanyName, added.Phone), conn);
-                conn.Open();
+                SqlCommand cmd = new SqlCommand(string.Format("insert into Shippers(CompanyName,Phone) values('{0}','{1}')", added.CompanyName, added.Phone), conn);               
                  donendeger = cmd.ExecuteNonQuery();
-                tran.Commit();
+              //  tran.Commit();
             }
             catch (Exception ex)
             {
-                tran.Rollback();
+               // tran.Rollback();
             }
             conn.Close();
-
             return donendeger;
         }
 
