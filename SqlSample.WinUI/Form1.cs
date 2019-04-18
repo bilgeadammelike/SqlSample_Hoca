@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SqlSample.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,25 @@ namespace SqlSample.WinUI
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+           
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            foreach (var item in new ShipperDAL().ShipperSelect())
+            {
+                lstShippers.Items.Add(item);
+            }
         }
     }
 }
