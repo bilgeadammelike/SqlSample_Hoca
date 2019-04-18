@@ -23,6 +23,7 @@ namespace SqlSample.DAL
             catch (Exception ex)
             {
 
+
                 throw;
             }
             finally
