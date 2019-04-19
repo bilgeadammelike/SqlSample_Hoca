@@ -61,7 +61,8 @@ namespace SqlSample.DAL
             tran = conn.BeginTransaction();         
             try
             {
-                SqlCommand cmd = new SqlCommand(string.Format("insert into Shippers(CompanyName,Phone) values('{0}','{1}')", added.CompanyName, added.Phone), conn);               
+                SqlCommand cmd = new SqlCommand(string.Format("insert into Shippers(CompanyName,Phone) values('{0}','{1}')", added.CompanyName, added.Phone), conn);
+                cmd.Transaction = tran;
                  donendeger = cmd.ExecuteNonQuery();
               //  tran.Commit();
             }

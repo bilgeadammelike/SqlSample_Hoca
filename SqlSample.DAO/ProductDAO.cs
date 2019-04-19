@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace SqlSample.DAO
 {
-   public class CategoryDAO:BaseEntity
+    public class ProductDAO:BaseEntity
     {
-        public string CategoryName { get; set; }
+        public string ProductName { get; set; }
+        public decimal UnitPrice{ get; set; }
+        public int UnitsInStock { get; set; }
+
         public override string ToString()
         {
-            return CategoryName;
+            return ProductName;
         }
-
     }
 }
