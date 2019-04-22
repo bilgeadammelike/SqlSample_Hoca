@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
     <Compile Include="CategoryDAO.cs" />
+    <Compile Include="SepetItem.cs" />
     <Compile Include="ProductDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShipperDAO.cs" />

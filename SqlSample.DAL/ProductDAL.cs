@@ -43,11 +43,18 @@ namespace SqlSample.DAL
             //cmd1.Parameters.AddWithValue("@id",ID);
             conn.Open();
             SqlDataReader rdr= cmd.ExecuteReader();
-            rdr.Read();
             categoryList = new List<ProductDAO>();
-            categoryList.Add(new ProductDAO() {
-                ProductName=rdr["ProductName"].ToString()
-            });
+            while (rdr.Read())
+            {
+               
+                categoryList.Add(new ProductDAO()
+                {
+                    ProductName = rdr["ProductName"].ToString(),
+                    UnitPrice=Convert.ToDecimal(rdr["UnitPrice"]),
+                    UnitsInStock=Convert.ToInt32(rdr["UnitsInStock"])
+                });
+            }   
+           
 
             return categoryList;
         }

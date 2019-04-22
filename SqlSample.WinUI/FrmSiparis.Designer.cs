@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cmbKategori = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,7 +39,10 @@
             this.txtStokMiktari = new System.Windows.Forms.TextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.btnEkle = new System.Windows.Forms.Button();
+            this.erpSepet = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpSepet)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbKategori
@@ -93,6 +97,7 @@
             this.lstUrun.Name = "lstUrun";
             this.lstUrun.Size = new System.Drawing.Size(186, 147);
             this.lstUrun.TabIndex = 2;
+            this.lstUrun.SelectedIndexChanged += new System.EventHandler(this.lstUrun_SelectedIndexChanged);
             // 
             // txtUurunAdi
             // 
@@ -114,6 +119,11 @@
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown1.TabIndex = 4;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // btnEkle
             // 
@@ -123,12 +133,28 @@
             this.btnEkle.TabIndex = 5;
             this.btnEkle.Text = "+";
             this.btnEkle.UseVisualStyleBackColor = true;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
+            // 
+            // erpSepet
+            // 
+            this.erpSepet.ContainerControl = this;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(251, 164);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 27);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Siparişi Tamamla";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmSiparis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(507, 237);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnEkle);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.txtStokMiktari);
@@ -143,6 +169,7 @@
             this.Text = "FrmSiparis";
             this.Load += new System.EventHandler(this.FrmSiparis_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpSepet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,5 +187,7 @@
         private System.Windows.Forms.TextBox txtStokMiktari;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button btnEkle;
+        private System.Windows.Forms.ErrorProvider erpSepet;
+        private System.Windows.Forms.Button button1;
     }
 }

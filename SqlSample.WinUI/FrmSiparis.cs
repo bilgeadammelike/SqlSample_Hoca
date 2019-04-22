@@ -46,6 +46,51 @@ namespace SqlSample.WinUI
             {
                 lstUrun.Items.Add(item);
             }
+            lstUrun.Enabled = true;
+            
+        }
+
+        private void lstUrun_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ProductDAO dao= lstUrun.SelectedItem as ProductDAO;
+            txtStokMiktari.Text = dao.UnitsInStock.ToString();
+            txtUurunAdi.Text = dao.ProductName;
+            numericUpDown1.Enabled = true;
+        }
+
+        List<SepetItem> sepetim = new List<SepetItem>();
+        private void btnEkle_Click(object sender, EventArgs e)
+        {
+            if (lstUrun.SelectedItem == null)
+            {
+                erpSepet.SetError(txtUurunAdi, "hata varrrr");
+
+            }
+            else
+            {
+                erpSepet.Clear();
+                sepetim.Add(new SepetItem()
+                {
+                    Adet = Convert.ToInt32(numericUpDown1.Value),
+                    dao = lstUrun.SelectedItem as ProductDAO
+                });
+            }
+
+       
+
+            //if (sepetim.Count == 0)
+            //{
+            //    //ilk 
+            //}
+            //else
+            //{
+            //}
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
